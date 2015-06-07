@@ -1,0 +1,48 @@
+<div class="authform">
+<%= form_for(@admission, :html => { :role => 'form', :multipart => true, :id => 'eventForm' }) do |f| %>
+  <% if @admission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admission.errors.count, "error") %> prohibited this admission from being saved:</h2>
+      <ul>
+      <% @admission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :Standard %> <br /> 
+    <%= f.collection_select :sclass_id, Sclass.all, :id, :sclassname, :selected => @admission.sclass_id, :html => { class: 'form-control'} %>  
+  </div>
+  <div class="form-group">
+    <%= f.label :subject_id %><br>
+    <%= f.collection_select :subject_id, Subject.all, :id, :subjectname, :selected => @admission.subject_id, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :'Opening on' %>
+    <%= f.date_field :startdate, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :'Closing on' %>
+    <%= f.date_field :enddate, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :'Total Fee' %><br>
+    <%= f.number_field :totalfee, class: 'form-control' %>
+  </div>
+<div class="input-group">
+  <span class="input-group-btn">
+    <span class="btn btn-small btn-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Browse Fee Structure</span>
+    <%= f.file_field :feestructure, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+  </span>
+  <span class="form-control"></span>
+</div>
+<br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>
+</div>
+ 
