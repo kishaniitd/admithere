@@ -13,11 +13,11 @@
 
   <div class="form-group">
     <%= f.label :Standard %> <br /> 
-    <%= f.collection_select :sclass_id, Sclass.all, :id, :sclassname, :selected => @admission.sclass_id, :html => { class: 'form-control'} %>  
+    <%= f.collection_select :sclass_id, Sclass.all, :id, :sclassname, :html => { class: 'form-control'} %>  
   </div>
   <div class="form-group">
     <%= f.label :subject_id %><br>
-    <%= f.collection_select :subject_id, Subject.all, :id, :subjectname, :selected => @admission.subject_id, class: 'form-control'  %>
+    <%= f.collection_select :subject_id, Subject.all.order(:subjectname), :id, :subjectname, class: 'form-control'  %>
   </div>
   <div class="form-group">
     <%= f.label :'Opening on' %>

@@ -6,11 +6,11 @@
 <div>
           <% @admissions = Admission.where(user_id: @user.id).order(:subject_id, :sclass_id) %>
           <% @admissions.each do |admission| %>
+          <% if admission.sclass_id < 10 %>
             
             
             <div class=" grid1 col-md-3 col-sm-4 col-xs-12" style=" margin:5px 0px 5px 0px; background-color: #dddddd;">
                   <div class="subject col-xs-12 col-sm-12">
-                      <%= Subject.find(admission.subject_id).subjectname %> | 
                       <%= Sclass.find(admission.sclass_id).sclassname %>
                   </div>
                   
@@ -31,7 +31,7 @@
                            
               <% end %>
               </div>
-            
+          <% end %>  
         <% end %>
 
 </div>

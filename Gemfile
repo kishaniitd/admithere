@@ -12,6 +12,7 @@ gem 'filterrific'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'sortable-table'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

@@ -20,6 +20,7 @@ body a{
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
 }
+
 .header{
 	background:#fff;
 	padding:0;
@@ -38,131 +39,7 @@ body a{
 	margin-right: 5%;
 	width: 19.5555%;
 }
-.menu{
-	 float:left;
-	 margin: 13px 0 0;
-	 width:74.5555%;
-}
-.menu li{
-	display:inline-block;
-}
-.menu li:first-child{
-   	margin-left:0;
-}
-.menu li a{
-  	display: block;
-	font-size: 0.85em;
-	text-transform: uppercase;
-	margin: 5px 10px;
-	color:#96a6a7;
-	padding:0;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-	font-weight:500;
-}
-.menu li a:hover ,.menu li.active a{
-	 background:#fff;
-	 color:#e94e38;
-} 
-#nav .current a {
-	 color:red;
-}
-.toggleMenu {
-    display:  none;
-  	padding:4px 5px 0px 5px;
-}
-.nav:before,
-.nav:after {
-    content: " "; 
-    display: table; 
-}
-.nav:after {
-    clear: both;
-}
-.nav ul {
-    list-style: none;
-}
-@media screen and (max-width:800px) {
-	.active {
-        display: block;
-    }
-    .menu li a{
-    	text-align:left;
-    	border-radius:0;
-    	-webkit-border-radius:0;
-    	-moz-border-radius:0;
-    	-o-border-radius:0;
-    }
-    .nav {
-	    list-style: none;
-		width: 95%;
-		position: absolute;
-		right: 20px;
-		background: #222;
-		top: 72px;
-		z-index: 111;
-    }
-    .nav:after {
-		content: '';
-		position: absolute;
-		right:18px;
-		top: -9px;
-		border-left:10px solid rgba(0, 0, 0, 0);
-		border-right:10px solid rgba(0, 0, 0, 0);
-		border-bottom:10px solid #333;
-	}
-    .menu li a span.messages{
-    	text-align:center;
-    	top:15px;
-    }
-    .nav li ul{
-    	width:100%;   	
-    }
-    .menu ul{
-    	margin:0;
-    }
-    .nav > li.hover > ul {
-        width:100%;
-    }
-    .nav > li {
-        float: none;
-        display:block;
-    }
-    .nav ul {
-        display: block;
-        width: 100%;
-    }
-   .nav > li.hover > ul , .nav li li.hover ul {
-        position: static;
-    }
-    .nav li a{
-    	border-top:1px solid #333;
-    }
-     .nav li:first-child a{
-     	border-top:none;
-     }
- }
-.header_right{
-	/*--float:right;
-	width:32.5555%;--*/
-	padding:0;
-}
-.sb-search {
-	position: absolute;
-	top:0;
-	right:-10px;
-	width: 0%;
-	min-width:70px;
-	height:71px;
-	float: right;
-	overflow: hidden;
-	-webkit-transition: width 0.3s;
-	-moz-transition: width 0.3s;
-	transition: width 0.3s;
-	-webkit-backface-visibility: hidden;
-}
+
 .sb-search-input {
 	position: absolute;
 	top: 0;
@@ -2668,3 +2545,17 @@ label.btn1.btn2.btn-2.btn-2g {
 	width: 56%;
 }
 }
+
+.schooltype {
+	width: 24px;
+	height: 24px;
+	background: url(../assets/001_55.png);
+      
+        
+      }
+   .co-ed {background-position:0px 0px;}
+   .boys {background-position:-24px 0px;}
+   .girls {background-position:-136px 0px;}
+   
+
+

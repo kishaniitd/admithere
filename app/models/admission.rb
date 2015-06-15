@@ -1,9 +1,11 @@
 class Admission < ActiveRecord::Base
 
 
-  validates_presence_of :sclass_id, :totalfee, :startdate, :enddate, :user, :sclass, :subject
-  validate :end_date_is_after_start_date
+  validates_presence_of :sclass_id, :totalfee, :startdate, :enddate, :user, :sclass
+  validates_uniqueness_of :subject_id, scope: [:sclass_id, :user_id]
 
+  validate :end_date_is_after_start_date
+  validate :all_subject_upto_tenth
   belongs_to :user
   belongs_to :sclass
   belongs_to :subject
@@ -128,6 +130,13 @@ def end_date_is_after_start_date
   end 
 end
 
+def all_subject_upto_tenth
+  return if sclass_id.blank? || subject_id.blank?
+  if (sclass_id < 11 && subject_id != 1)
+    errors.add(:subject_id, " :select 'ALL' upto class 10th")
+  end
+end
+  
 
   #def self.search(query)
   #  # where(:title, query) -> This would return an exact match of the query

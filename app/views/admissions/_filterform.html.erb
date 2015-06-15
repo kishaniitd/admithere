@@ -15,7 +15,7 @@
         
       <%= f.text_field(:with_user_name, class: 'filterrific-periodically-observed form-control', placeholder: 'searchby School Name', style: "margin:0px 0px 5px 0;" ) %>
      <div class="form-group form-control" >
-      <%= f.radio_button :with_user_schooltype,  "Co-ed" %><span class="control-label">Co-ed </span><%= f.radio_button :with_user_schooltype,  "Boys only" %>Boys <%= f.radio_button :with_user_schooltype,  "Girls only" %>Girls
+      <%= f.radio_button :with_user_schooltype,  "Co-ed", multiple: 'true' %><i class="fa fa-female fa-2x"></i><i class="fa fa-male fa-2x"></i><%= f.radio_button :with_user_schooltype,  "Boys only", multiple: 'true' %><i class="fa fa-male fa-2x"></i><%= f.radio_button :with_user_schooltype,  "Girls only", multiple: 'true' %><i class="fa fa-female fa-2x"></i>
      </div> 
       
         <div class="panel panel-default">
