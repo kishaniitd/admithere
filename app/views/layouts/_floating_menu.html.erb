@@ -1,0 +1,29 @@
+<div id="floatMenu" class="hidden-xs">
+<h3>Menu</h3>
+<ul>
+	<li><a href="#">Home</a></li>
+	<li><a href="#about">about</a></li>
+	<li><a href="#services">service</a></li>
+	<li><a href="#portfolio">portfolio</a></li>
+	<!--<%= link_to "Section", root_path(:anchor => "portfolio") %>-->
+	<li><a href="#contact">contact</a></li>
+
+</ul>
+</div>
+
+<script language="javascript" type="text/javascript">
+<!--//
+$(function(){
+	function moveFloatMenu() {
+		var menuOffset = menuYloc.top + $(this).scrollTop() + "px";
+		$('#floatMenu').animate({top:menuOffset},{duration:500,queue:false});
+	}
+ 
+	menuYloc = $('#floatMenu').offset();
+ 
+	$(window).scroll(moveFloatMenu);
+ 
+	moveFloatMenu();
+});
+//-->
+</script>

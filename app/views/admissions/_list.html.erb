@@ -3,7 +3,7 @@
       <%= page_entries_info admissions  %>
   
   <table class="table table-striped table-bordered table-condensed table-responsive">
-    <tr>
+    <tr class="hidden-xs">
       <th>School Name</th>
       <th>Total Fee (INR)</th>
       <th>Opening on</th>
@@ -11,12 +11,12 @@
       <th>Type</th>
       <th>City</th>
       <% if user_signed_in? %>
-      <th>Update</th>
+      <th class="hidden-xs">Update</th>
       <% end %>
     </tr>
     
     <% @admissions.each do |admission| %>
-      <tr>
+      <tr class="hidden-xs">
         <td><%= link_to User.find(admission.user_id).name, user_path(admission.user_id) %></td>
         <td><span><%= link_to "   Rs.#{admission.totalfee}", admission, {class: "btn btn-default btn-xs glyphicon glyphicon-list col-xs-12", style: "text-align:left;"} %></span></td>
         <td><%= admission.startdate %></td>
@@ -25,15 +25,42 @@
         <td><%= User.find(admission.user_id).city %></td>
         <% if user_signed_in? %>
           <% if admission.user_id == current_user.id %>
-            <td>
+            <td class="hidden-xs">
               <span aria-hidden="true"><%= link_to '', edit_admission_path(admission.id), {class: "btn btn-default btn-xs glyphicon glyphicon-edit col-xs-6"} %></span>
               <span aria-hidden="true"><%= link_to '', admission,method: :delete, data: { confirm: 'Are you sure?'} , class: "btn btn-default btn-xs glyphicon glyphicon-trash col-xs-6" %></span>                      
             </td>          
           <% else %>
-            <td></td>
+            <td class="hidden-xs"></td>
           <% end %>
         <% end %>
       </tr>
+      
+          <div class=" grid1 col-md-3 col-sm-4 col-xs-12 visible-xs" style=" margin:5px 0px 5px 0px; background-color: #dddddd;">
+                  <div class="subject col-xs-12 col-sm-12">
+                    <%= User.find(admission.user_id).name %> 
+                  </div>
+                  
+                <div class="panel panel-default info">
+                  <div class="panel-heading">
+                    opens between
+                  </div>
+                  <div class="panel-body"> 
+                      <%= admission.startdate %> to <%= admission.enddate %>
+                  </div>
+                </div>  
+                  
+                  
+              <span><%= link_to " #{Sclass.find(admission.sclass_id).sclassname} Rs.#{admission.totalfee}", admission, {class: "btn btn-default btn-xs glyphicon glyphicon-list col-xs-12", style: "text-align:left;"} %></span>
+                  
+              <% if @user == current_user %>
+                    <span aria-hidden="true"><%= link_to '', edit_admission_path(admission.id), {class: "btn btn-default btn-xs glyphicon glyphicon-edit col-xs-6"} %></span>
+                    <span aria-hidden="true"><%= link_to '', admission,method: :delete, data: { confirm: 'Are you sure?'} , class: "btn btn-default btn-xs glyphicon glyphicon-trash col-xs-6" %></span>                      
+                           
+              <% end %>
+          </div>
+      
+      
+      
     <% end %>
     
   </table>
@@ -45,9 +72,3 @@
 
 </div>
 
-
-<script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
-</script>

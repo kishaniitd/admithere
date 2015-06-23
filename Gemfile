@@ -18,9 +18,14 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+
+gem 'autoprefixer-rails'
 gem 'bootstrap_forms', '~> 4.0.1'
 gem 'bootstrap-sass'
-gem 'bootstrap-datepicker-rails'
+gem 'bootstrap3-rails', '~> 3.2.0'
+gem 'sprockets'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '4.7.14'
 gem 'devise'
 group :development do
   gem 'better_errors'

@@ -1,0 +1,24 @@
+<script type="text/javascript">
+$(function() {
+        var scntDiv = $('#addusers');
+        var i = $('#addusers div').size() + 1;
+
+        $('#addfields').on('click', function() {
+                $('<div class="field"><h2>Admission ' + i +'</h2><input id="admissions__totalfee' + i +'" name="admissions[][totalfee]" placeholder="first name" type="text" /><input id="admissions__startdate' + i +'" name="admissions[][startdate]" placeholder="last name" type="text" /></div>').appendTo(scntDiv);
+                i++;
+                return false;
+        });
+
+
+});
+
+</script>
+<div id="addusers">
+<div class="field">
+ <h2>Admission 1</h2>
+ <%= text_field_tag "admissions[][totalfee]", nil, :placeholder => "first name" %>
+ <%= text_field_tag "admissions[][lastname]", nil, :placeholder => "last name" %>
+</div>
+</div>
+
+<a href="#" id="addfields">Add a New User</a><br/>

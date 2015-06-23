@@ -1,47 +1,47 @@
 <%= form_for_filterrific  @filterrific, remote: true do |f| %>
 
-    <div class="col-xs-12 col-sm-3 col-md-2">
+    <div class="col-sm-3 col-md-2 hidden-xs">
 
         <div class="panel panel-default">
           <div class="panel-heading">
             Please Select*
           </div>
-          <div class="panel-body">
-            
+          <div class="panel-body"> 
                <%= f.select(:with_sclass_id, @filterrific.select_options[:with_sclass_id], { include_hidden: false, include_blank: '-Select Standard-' }, class: 'form-control',style: "margin:0px 0px 5px 0;") %>
                <%= f.select(:with_subject_id, @filterrific.select_options[:with_subject_id], { include_hidden: false, include_blank: '-Select Subject-' }, class: 'form-control') %>
           </div>
         </div>
-        
-      <%= f.text_field(:with_user_name, class: 'filterrific-periodically-observed form-control', placeholder: 'searchby School Name', style: "margin:0px 0px 5px 0;" ) %>
-     <div class="form-group form-control" >
-      <%= f.radio_button :with_user_schooltype,  "Co-ed", multiple: 'true' %><i class="fa fa-female fa-2x"></i><i class="fa fa-male fa-2x"></i><%= f.radio_button :with_user_schooltype,  "Boys only", multiple: 'true' %><i class="fa fa-male fa-2x"></i><%= f.radio_button :with_user_schooltype,  "Girls only", multiple: 'true' %><i class="fa fa-female fa-2x"></i>
-     </div> 
+         
+              <%= f.text_field(:with_user_name, class: 'filterrific-periodically-observed form-control hidden-xs', placeholder: 'searchby School Name', style: "margin:0px 0px 1px 0;" ) %>
+
+        <div class="form-group form-control" >
+         <%= f.radio_button :with_user_schooltype,  "Co-ed", multiple: 'true' %><i class="fa fa-female fa-2x"></i><i class="fa fa-male fa-2x"></i><%= f.radio_button :with_user_schooltype,  "Boys only", multiple: 'true' %><i class="fa fa-male fa-2x"></i><%= f.radio_button :with_user_schooltype,  "Girls only", multiple: 'true' %><i class="fa fa-female fa-2x"></i>
+        </div>
       
         <div class="panel panel-default">
           <div class="panel-heading">
             Location
           </div>
           <div class="panel-body"> 
-            <%= f.select(:with_user_state, @filterrific.select_options[:with_user_state], { include_hidden: false, include_blank: '- Select State -' }, class: 'form-control', style: "margin:0px 0px 5px 0;") %>
-            <%= f.select(:with_user_city, @filterrific.select_options[:with_user_city], { include_hidden: false, include_blank: '- Select City -' }, class: 'form-control', style: "margin:0px 0px 5px 0;") %>
+            <%= f.select(:with_user_state, @filterrific.select_options[:with_user_state], { include_hidden: false, include_blank: '- Select State -' }, class: 'form-control', style: "margin:0px 0px 1px 0;") %>
+            <%= f.select(:with_user_city, @filterrific.select_options[:with_user_city], { include_hidden: false, include_blank: '- Select City -' }, class: 'form-control', style: "margin:0px 0px 1px 0;") %>
             <%= f.text_field(:search_query, class: 'filterrific-periodically-observed form-control', placeholder: 'Search Pincode')  %>                             
           </div>
         </div>
-        
+
         <div class="panel panel-default">
           <div class="panel-heading">
             Total FEE
           </div>
           <div class="panel-body">
-             <%= f.number_field(:with_totalfee_gte, class: 'filterrific-periodically-observed form-control', placeholder: 'Minimum Fee',style: "margin:0px 0px 5px 0;") %>
+             <%= f.number_field(:with_totalfee_gte, class: 'filterrific-periodically-observed form-control', placeholder: 'Minimum Fee',style: "margin:0px 0px 1px 0;") %>
              <%= f.number_field(:with_totalfee_lt, class: 'filterrific-periodically-observed form-control', placeholder: 'Maximum Fee') %>                               
           </div>
         </div>
                                                    
     </div>
   
-    <div class="col-xs-12 col-sm-9 col-md-8">               
+    <div class="col-xs-12 col-sm-9 col-md-8 hidden-xs">               
           <div class="col-xs-12 col-sm-6 col-md-3">
               Starting <%= f.date_field(:with_startdate_gte,{:order => [:day, :month, :year], class: 'filterrific-periodically-observed form-control form-inline'})  %>
           </div>
@@ -55,8 +55,118 @@
               Filters <%= link_to('Reset',reset_filterrific_url, class: 'btn btn-default form-control' ) %>
           </div>                                                                                        
      </div>
-      
+
+
+<div class="panel-group visible-xs" id="accordion">
+    <!-- First Panel -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+             <h2 class="panel-title"
+                 data-toggle="collapse" 
+                 data-target="#collapseOne">
+                 School
+             </h2>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+               <%= f.select(:with_sclass_id, @filterrific.select_options[:with_sclass_id], { include_hidden: false, include_blank: '-Select Standard-' }, class: 'form-control input-sm',style: "margin:0px 0px 1px 0;") %>
+               <%= f.select(:with_subject_id, @filterrific.select_options[:with_subject_id], { include_hidden: false, include_blank: '-Select Subject-' }, class: 'form-control input-sm') %>
+               <%= f.text_field(:with_user_name, class: 'filterrific-periodically-observed form-control visible-xs input-sm', placeholder: 'searchby School Name', style: "margin:0px 0px 1px 0;" ) %>
+               <%= f.radio_button :with_user_schooltype,  "Co-ed", multiple: 'true' %><i class="fa fa-female"></i><i class="fa fa-male"></i><%= f.radio_button :with_user_schooltype,  "Boys only", multiple: 'true' %><i class="fa fa-male"></i><%= f.radio_button :with_user_schooltype,  "Girls only", multiple: 'true' %><i class="fa fa-female"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Second Panel -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+             <h2 class="panel-title" 
+                 data-toggle="collapse" 
+                 data-target="#collapseTwo">
+                 Location
+             </h2>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+              <%= f.select(:with_user_state, @filterrific.select_options[:with_user_state], { include_hidden: false, include_blank: '- Select State -' }, class: 'form-control input-sm') %>
+              <%= f.select(:with_user_city, @filterrific.select_options[:with_user_city], { include_hidden: false, include_blank: '- Select City -' }, class: 'form-control input-sm') %>
+              <%= f.text_field(:search_query, class: 'filterrific-periodically-observed form-control input-sm', placeholder: 'Search Pincode')  %>                             
+            </div>
+        </div>
+    </div>
+    
+    <!-- Third Panel -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+             <h2 class="panel-title"
+                 data-toggle="collapse"
+                 data-target="#collapseThree">
+                 Admission Details
+             </h2>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table" style="table-layout: fixed;" >
+                  <colgroup>
+                      <col class="col-xs-6">
+                      <col class="col-xs-6">
+                  </colgroup>
+                  <tbody>
+                      <tr>
+                        <td><%= f.number_field(:with_totalfee_gte, class: 'filterrific-periodically-observed form-control input-xs', placeholder: 'Minimum Fee') %></td>
+                        <td><%= f.number_field(:with_totalfee_lt, class: 'filterrific-periodically-observed form-control input-xs',  placeholder: 'Maximum Fee') %></td>
+                      </tr>
+                      <tr>
+                        <td><%= f.date_field(:with_startdate_gte, class: 'filterrific-periodically-observed form-control input-xs')  %></td>
+                        <td><%= f.date_field(:with_enddate_lt, class: 'filterrific-periodically-observed form-control input-xs')  %></td>
+                      </tr>
+                  </tbody>
+                </table>
+                 <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], { include_hidden: false, include_blank: '- Any -' } ,{class: "filterrific-periodically-observed form-control input-sm"}) %>
+
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Fourth Panel -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+             <h2 class="panel-title"
+                 data-toggle="collapse"
+                 data-target="#collapseFour">
+                  <%= link_to('Reset filters',reset_filterrific_url ) %>                                                                                      
+             </h2>
+        </div>
+    </div>
+    
+</div>
+     
       <%= render_filterrific_spinner %>
 <% end %>
 
+<script>
+$(function () {
+
+    var active = true;
+
+    $('#collapse-init').click(function () {
+        if (active) {
+            active = false;
+            $('.panel-collapse').collapse('show');
+            $('.panel-title').attr('data-toggle', '');
+            $(this).text('Enable accordion behavior');
+        } else {
+            active = true;
+            $('.panel-collapse').collapse('hide');
+            $('.panel-title').attr('data-toggle', 'collapse');
+            $(this).text('Disable accordion behavior');
+        }
+    });
+    
+    $('#accordion').on('show.bs.collapse', function () {
+        if (active) $('#accordion .in').collapse('hide');
+    });
+
+});
+</script>
 
