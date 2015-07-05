@@ -10,8 +10,7 @@
                <%= f.select(:with_sclass_id, @filterrific.select_options[:with_sclass_id], { include_hidden: false, include_blank: '-Select Standard-' }, class: 'form-control',style: "margin:0px 0px 5px 0;") %>
                <%= f.select(:with_subject_id, @filterrific.select_options[:with_subject_id], { include_hidden: false, include_blank: '-Select Subject-' }, class: 'form-control') %>
           </div>
-        </div>
-         
+        </div>         
               <%= f.text_field(:with_user_name, class: 'filterrific-periodically-observed form-control hidden-xs', placeholder: 'searchby School Name', style: "margin:0px 0px 1px 0;" ) %>
 
         <div class="form-group form-control" >

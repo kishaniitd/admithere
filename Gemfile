@@ -12,6 +12,8 @@ gem 'filterrific'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'sortable-table'
+gem 'rails4-autocomplete'
+gem 'capistrano', '~> 3.4.0'
 
 group :development, :test do
   gem 'byebug'

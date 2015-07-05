@@ -3,6 +3,8 @@ class AdmissionsController < ApplicationController
   before_action :set_admission, only: [:show, :edit, :update, :destroy]
 #  before_action :correct_user, only: [:edit, :update, :destroy]
 
+  autocomplete :user, :name
+
   def correct_user  
     @user = User.find(@admission.user_id)
     unless @user == current_user

@@ -13,8 +13,10 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery_ui
 //= require turbolinks
 //= require moment
 //= require filterrific/filterrific-jquery
-//= require_tree
+//= require autocomplete-rails
 //= require bootstrap-datetimepicker
+//= require_tree

@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   
+  resources :admissions do
+    get :autocomplete_user_name, :on => :collection
+  end
+  
+  
 end
